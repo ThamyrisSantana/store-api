@@ -17,6 +17,12 @@ export async function getProduct(req: Request, res: Response) {
 	try {
 		const product = await Product.findById(req.params.id);
 
+		if (!product) {
+			return res.status(403).json({
+				message: "Product not found",
+			});
+		}
+
 		return res.send(product);
 	} catch (error) {
 		return res.status(500).json({ error });
