@@ -4,6 +4,7 @@ import type { IUser } from "../types/User.types";
 
 const UserSchema = new Schema<IUser>(
 	{
+		userId: { type: String },
 		name: { type: String, required: true },
 		email: { type: String, unique: true, required: true },
 		password: { type: String, unique: true, required: true },
